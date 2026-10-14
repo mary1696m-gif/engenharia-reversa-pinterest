@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pinterest — Mariana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <button class="p-logo" title="Pinterest" aria-label="Pinterest">P</button>
+    <nav class="side-nav" aria-label="Navegação">
+      <button class="side-btn active" data-view="home" title="Início" aria-label="Início">⌂</button>
+      <button class="side-btn" data-view="explore" title="Explorar" aria-label="Explorar">◎</button>
+      <button class="side-btn" data-view="create" title="Criar Pin" aria-label="Criar Pin">▦</button>
+      <button class="side-btn" data-view="notifications" title="Notificações" aria-label="Notificações">♧<i></i></button>
+      <button class="side-btn" data-view="messages" title="Mensagens" aria-label="Mensagens">☏<i></i></button>
+    </nav>
+    <button class="side-btn settings" id="settingsBtn" title="Configurações" aria-label="Configurações">⚙</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <label class="searchbar"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Pesquisar" autocomplete="off"><button id="clearSearch" title="Limpar pesquisa" aria-label="Limpar pesquisa">×</button></label>
+      <button class="camera-btn" id="visualSearch" title="Pesquisa visual" aria-label="Pesquisa visual">◎</button>
+      <button class="avatar" id="profileBtn" title="Perfil">M</button>
+      <button class="chevron" id="profileMenu" aria-label="Menu do perfil">⌄</button>
+    </header>
+
+    <div class="topic-row" id="topicRow" aria-label="Tópicos">
+      <button class="topic active" data-topic="Todos">Todos</button>
+      <button class="topic" data-topic="estilo">estilo ✨</button>
+      <button class="topic" data-topic="2026">2026 ✨</button>
+      <button class="topic" data-topic="mansao">mansão 9 quartos</button>
+      <button class="topic" data-topic="fanarts">Fanarts</button>
+      <button class="topic" data-topic="casa">casa nova</button>
+      <button class="topic" data-topic="inspirações">inspirações</button>
+      <button class="topic" data-topic="futury">futury 🫧</button>
+      <button class="topic" data-topic="2026look">2026 🪽</button>
+      <button class="topic" data-topic="decor">Casa nova #10</button>
+    </div>
+
+    <section class="profile-page" id="profilePage" hidden>
+      <div class="profile-cover"></div>
+      <div class="profile-summary">
+        <div class="profile-avatar-large">M</div>
+        <h1>Mariana</h1>
+        <p>@mariana · Seu espaço de ideias e inspirações</p>
+        <span id="profileStats">0 Pins salvos</span>
+        <div class="profile-tabs">
+          <button class="profile-tab active" data-profile-tab="saved">Salvos</button>
+          <button class="profile-tab" data-profile-tab="created">Criados</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="feed-wrap" id="feedWrap">
+      <div class="feed" id="feed" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <h2>Nenhum Pin encontrado</h2><p>Tente pesquisar por outro termo.</p>
+      </div>
+    </section>
+    <footer class="footnote">Demonstração de interface para estudo • Conteúdo ilustrativo</footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="pinDialog" class="pin-dialog">
+    <button class="close-dialog" id="closeDialog" aria-label="Fechar">×</button>
+    <div class="dialog-image-wrap"><img id="dialogImage" alt=""></div>
+    <div class="dialog-details">
+      <div class="dialog-actions"><button class="icon-action" id="sharePin" title="Compartilhar">↗</button><button class="save-btn" id="dialogSave">Salvar</button></div>
+      <h2 id="dialogTitle"></h2><p id="dialogDescription"></p>
+      <div class="creator"><span class="mini-avatar">M</span><div><strong>Mariana</strong><small>Ideias e inspirações</small></div></div>
+      <label class="comment-label" for="commentInput">Adicionar um comentário</label>
+      <div class="comment-row"><input id="commentInput" placeholder="Adicione um comentário"><button id="sendComment">Enviar</button></div>
+      <div id="comments" class="comments"></div>
+    </div>
+  </dialog>
+
+  <dialog id="createDialog" class="create-dialog">
+    <button class="close-dialog" id="closeCreate" aria-label="Fechar">×</button>
+    <h2>Criar um Pin</h2><p>Adicione uma imagem por URL e escreva os detalhes do seu Pin.</p>
+    <form id="createForm">
+      <label>URL da imagem<input id="newImage" type="url" placeholder="https://..." required></label>
+      <label>Título<input id="newTitle" type="text" placeholder="Dê um título ao Pin" required maxlength="90"></label>
+      <label>Descrição<textarea id="newDescription" placeholder="Sobre o que é este Pin?"></textarea></label>
+      <label>Tópico<select id="newTopic"><option value="inspirações">Inspirações</option><option value="estilo">Estilo</option><option value="casa">Casa</option><option value="fanarts">Fanarts</option></select></label>
+      <button class="save-btn submit-create" type="submit">Publicar Pin</button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
